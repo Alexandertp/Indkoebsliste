@@ -16,7 +16,7 @@ riderModule.iml
 *.userosscache
 *.sln.docstates
 *.env
-
+*.idea
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
