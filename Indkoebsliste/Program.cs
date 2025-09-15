@@ -5,31 +5,6 @@ using System.Globalization;
 string vareFilNavn = "vareFil.txt";
 Vare[] produktListe = ReadFromFile();
 
-
-
-
-
-
-
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
 Console.WriteLine("Hvad vil du købe?");
 List<Vare> indkøbsVogn = new List<Vare>();
 while (true)
