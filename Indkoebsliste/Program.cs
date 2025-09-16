@@ -15,12 +15,12 @@ while (true)
         break;
     }
 
-    if (input.ToLower() == "vareliste" || input.ToLower() == "listvarer" || input.ToLower() == "lv")
+    if (input.ToLower() == "vareliste" || input.ToLower() == "listvarer" || input.ToLower() == "lv" ||  input.ToLower() == "vl")
     {
         ListVarer();
         input = Console.ReadLine();
     }
-
+     |
     foreach (var vare in produktListe)
     {
         if (input == vare.id.ToString())
@@ -116,7 +116,7 @@ void AddNewVarer()
 
         Console.WriteLine(vare);
 
-        File.AppendAllLines("vareFil.txt", vare);
+        File.AppendAllLines(vareFilNavn, vare);
 
         Console.WriteLine("varen er nu gemt i lager");
     }
