@@ -18,9 +18,8 @@ while (true)
     if (input.ToLower() == "vareliste" || input.ToLower() == "listvarer" || input.ToLower() == "lv" ||  input.ToLower() == "vl")
     {
         ListVarer();
-        input = Console.ReadLine();
     }
-     |
+     
     foreach (var vare in produktListe)
     {
         if (input == vare.id.ToString())
@@ -61,33 +60,24 @@ Vare[] ReadFromFile()
         File.Create(vareFilNavn);                          
     }                                                      
     string[] importTekst = File.ReadAllLines(vareFilNavn); 
-    Vare[] produktListe = new Vare[importTekst.Length];    
+    Vare[] produktListeTemp = new Vare[importTekst.Length];    
     int i = 0;                                             
                                                            
     foreach (string line in importTekst)                   
     {                                                      
         Console.WriteLine(line);                           
         string[] opdelt = line.Split(',');                 
-        produktListe[i] = new Vare();                      
-        produktListe[i].navn  = opdelt[0];                 
-        produktListe[i].pris = Convert.ToDouble(opdelt[1]);
-        produktListe[i].id  = Convert.ToInt32(opdelt[2]);  
+        produktListeTemp[i] = new Vare();                      
+        produktListeTemp[i].navn  = opdelt[0];                 
+        produktListeTemp[i].pris = Convert.ToDouble(opdelt[1]);
+        produktListeTemp[i].id  = Convert.ToInt32(opdelt[2]);  
         Console.WriteLine("Taget fra VareArray:");         
-        Console.WriteLine(produktListe[i]);                
+        Console.WriteLine(produktListeTemp[i].navn + " " + produktListeTemp[i].pris + " " + produktListeTemp[i].id);                
                                                            
         i++;                                               
     }
-    return produktListe;
-}                                                          
-
-public class Vare()
-{
-    public double pris;
-    public string navn;
-    public int id;
-}
-
-
+    return produktListeTemp;
+} 
 
 void AddNewVarer()
 {
@@ -116,9 +106,15 @@ void AddNewVarer()
 
         Console.WriteLine(vare);
 
-        File.AppendAllLines(vareFilNavn, vare);
+        //File.WriteAllLines(vareFilNavn, vare);
 
         Console.WriteLine("varen er nu gemt i lager");
     }
 }
 
+public class Vare()
+{
+    public double pris;
+    public string navn;
+    public int id;
+}
