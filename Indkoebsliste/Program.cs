@@ -88,3 +88,37 @@ public class Vare()
 }
 
 
+
+void AddNewVarer()
+{
+    Console.WriteLine("tilføj varer til lageret");
+    Console.WriteLine("for at tilføje nye varer venligst indtast varens:");
+    Console.WriteLine("id, navn, pris");
+    while (true)
+    {
+
+        Console.WriteLine("Indtast id:");
+        string id = Console.ReadLine();
+
+        if (id == "exit" || id == "end" || id == "slut" || id == "færdig")
+        {
+            Console.WriteLine("du stopper nu tilføjelser af varer til lager");
+            break;
+        }
+
+        Console.WriteLine("Indtast Navn:");
+        string navn = Console.ReadLine();
+
+        Console.WriteLine("Indtast Pris:");
+        string pris = Console.ReadLine();
+
+        string vare = $"{id},{navn},{pris}";
+
+        Console.WriteLine(vare);
+
+        File.AppendAllLines("vareFil.txt", vare);
+
+        Console.WriteLine("varen er nu gemt i lager");
+    }
+}
+
