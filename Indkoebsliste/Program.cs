@@ -34,6 +34,10 @@ while (true)
         Console.WriteLine(vare.navn);
     }
     
+    if (input == "tilføj vare")
+    {
+        AddNewVarer ();
+    }
 }
 
 Console.Clear();
@@ -86,15 +90,18 @@ void AddNewVarer()
     Console.WriteLine("id, navn, pris");
     while (true)
     {
-
-        Console.WriteLine("Indtast id:");
-        string id = Console.ReadLine();
-
-        if (id == "exit" || id == "end" || id == "slut" || id == "færdig")
+        Console.WriteLine("For at afslutte skriv slut: tryk Enter for at fortsætte");
+       
+        string internalinput = Console.ReadLine();
+        if (internalinput == "exit" || internalinput == "end" || internalinput == "slut" || internalinput == "færdig")
         {
             Console.WriteLine("du stopper nu tilføjelser af varer til lager");
             break;
         }
+        Console.Clear();
+        Console.WriteLine("Indtast id:");
+        string id = Console.ReadLine();
+
 
         Console.WriteLine("Indtast Navn:");
         string navn = Console.ReadLine();
@@ -102,11 +109,12 @@ void AddNewVarer()
         Console.WriteLine("Indtast Pris:");
         string pris = Console.ReadLine();
 
-        string vare = $"{id},{navn},{pris}";
+
+        string[] vare = { $"{id},{navn},{pris}"};
 
         Console.WriteLine(vare);
 
-        //File.WriteAllLines(vareFilNavn, vare);
+        File.WriteAllLines(vareFilNavn, vare);
 
         Console.WriteLine("varen er nu gemt i lager");
     }
