@@ -62,7 +62,6 @@ Vare[] ReadFromFile()
     if (!File.Exists(vareFilNavn))   
         
     {                                                      
-        File.Create(vareFilNavn);
         string[] defaultVarer = new string[]
         {
             "0,Hamburger,40", 
