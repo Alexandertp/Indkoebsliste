@@ -59,9 +59,17 @@ void ListVarer()
 
 Vare[] ReadFromFile()                                        
 {                                                          
-    if (!File.Exists(vareFilNavn))                         
+    if (!File.Exists(vareFilNavn))   
+        
     {                                                      
-        File.Create(vareFilNavn);                          
+        File.Create(vareFilNavn);
+        string[] defaultVarer = new string[]
+        {
+            "0,Hamburger,40", 
+            "1,Nutella,72", 
+            "2,brød,7",
+        };
+        File.WriteAllLines(vareFilNavn, defaultVarer);
     }                                                      
     string[] importTekst = File.ReadAllLines(vareFilNavn); 
     Vare[] produktListeTemp = new Vare[importTekst.Length];    
