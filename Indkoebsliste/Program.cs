@@ -79,9 +79,9 @@ Vare[] ReadFromFile()
         Console.WriteLine(line);                           
         string[] opdelt = line.Split(',');                 
         produktListeTemp[i] = new Vare();                      
-        produktListeTemp[i].navn  = opdelt[0];                 
-        produktListeTemp[i].pris = Convert.ToDouble(opdelt[1]);
-        produktListeTemp[i].id  = Convert.ToInt32(opdelt[2]);  
+        produktListeTemp[i].id  = Convert.ToInt32(opdelt[0]);  
+        produktListeTemp[i].navn  = opdelt[1];                 
+        produktListeTemp[i].pris = Convert.ToDouble(opdelt[2]);
         Console.WriteLine("Taget fra VareArray:");         
         Console.WriteLine(produktListeTemp[i].navn + " " + produktListeTemp[i].pris + " " + produktListeTemp[i].id);                
                                                            
