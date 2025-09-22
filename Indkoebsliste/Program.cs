@@ -67,6 +67,7 @@ Vare[] ReadFromFile()
             "0,Hamburger,40", 
             "1,Nutella,72", 
             "2,brød,7",
+            "3,sommersby,50"
         };
         File.WriteAllLines(vareFilNavn, defaultVarer);
     }                                                      
@@ -132,4 +133,7 @@ public class Vare()
     public double pris;
     public string navn;
     public int id;
+    
+    
+    
 }
